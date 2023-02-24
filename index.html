@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio of Abhishek Amgain</title>
+    <link rel = "stylesheet" href = "style.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="header">
+    <div class="container">
+      <nav>
+        <p class="logo"> Abhishek Amgain </p>
+          <ul id = "sidemenu">
+             <li><a href = "#header"> Home </a></li>
+             <li><a href = "#about"> About </a></li>
+             <li><a href = "#contact"> Contact </a></li>
+             <i class = "fa fas fa-times" onclick = "closemenu()"></i>
+            </ul>
+            <i class = "fa fas fa-bars" onclick = "openmenu()"></i>
+       </nav> 
+       <div class="header-text">
+        <p> Pursuing Bachelor's degree at University Of Louisiana </p>
+        <h4> Hi, Welcome to my profile. I am <span class = "modify">Abhishek Amgain </span> from Nepal.</h4>
+        <h3> <u>Website is still in progress !! .</u></h3>
+        </div>
+        <div class = "tab-titles">
+        <p class = "tab-links" href = "#"> Skills </p>
+        <p class = "tab-links"href = "#"> Education</p>
+        <p class = "tab-links" href = "#"> Certificates </p>
+        <p class = "tab-links" href = "#"> Experience </p>
+       </div>
+    </div>
+</div>
+<!-------about    -->
+<div id="about">
+    <div class = "container">
+        <div class="row">
+            <div class ="about-col-1">
+                <img src = "Img2.jpeg">
+            </div>
+            <div class ="about-col-2">
+            <p class = "sub-title"> About me </p>
+            <h4>I am a highly motivated and creative computer science student with a passion for technology and problem-solving. With a solid understanding of programming concepts and a passion for technology, I am eager to apply my skills to real-world projects and gain valuable hands-on experience. I have experience in HTML, CSS, JavaScript, Java programming, Python programming,web developing, and have demonstrated my ability to work collaboratively and effectively on team projects during my career. I am constantly seeking opportunities to expand my skill set and apply my knowledge to real-world applications. I am a quick learner and am always seeking new challenges and opportunities to expand my knowledge and skills. As a dedicated and organized individual, I am eager to make a positive impact in the field of computer science and contribute to the development of cutting-edge technologies.</h4>
+        
+        </div>
+    </div>
+
+    </div>
+</div>
+<!---------------Contact ----------->
+<div id="contact">
+    <div class = "container">
+        <div class="row">
+            <div class = "contact-left">
+                <h1 class = "sub-title">Contact Me</h1>
+                <p> <i class=" fa fa-solid fa-paper-plane"></i> abhi.amgain567@gmail.com</p>
+                <p> <i class="fa fa-solid fa-phone"></i> +1 3185375493</p>
+
+                <div class ="social-icons">
+                    <a href = ""><i class="fa fa-brands fa-facebook"></i></a>
+                    <a href = ""><i class="fa fa-brands fa-instagram"></i></a>
+                    <a href = "https://www.linkedin.com/in/abhishek-amgain-04b642265/" target = "_blank"><i class="fa fa-brands fa-linkedin" ></i></a>
+
+
+
+                </div>
+               <button class = "button1"><a href ="" download> Download CV</a></button>
+             </div> 
+             <div class = "contact-right">
+
+                <form name = "submit-to-google-sheet">
+                    <input type="text" name = "Name" placeholder = "Enter your full name" required>
+                    <input type="email" name = "email" placeholder = "example@gmail.com" required >
+                    <textarea name="Message" rows="6" placeholder = "Your message" ></textarea>
+                    <button type = "submit" class = "button2" >Submit</button>
+
+
+                </form>
+                <span id = "msg"> </span>
+
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright @ Abhishek. Made with <i class="fa fa-solid fa-heart"></i> by Abhishek Amgain </p>
+    </div>
+</div>
+
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+    function openmenu(){
+        sidemenu.style.right = "0";
+
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";    }
+</script>
+
+ <!-------This sidemenu style right = 0 keeps the sidemenu ul at the end of the scree. similarly, -200 allows it to dissapear --------  -->
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzdaxsRFTt36BAR3lhlxeeA2cmHVG-pYn3XPCklYijo2vScwHr1FE2lSc2lwuXFVEbO/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        msg.innerHTML = "Message sent successfully"
+        setTimeout(function(){
+            msg.innerHTML = ""
+
+        },5000)
+        form.reset()
+
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
